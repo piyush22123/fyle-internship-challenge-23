@@ -1,0 +1,24 @@
+.container{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.container input{
+    border: 1.5px solid;
+    padding: 5px 10px;
+    width: 260px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+.container button{
+    border: 1.5px solid;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+button:hover{
+    background-color: rgb(5, 230, 5);
+    color: white;
+}

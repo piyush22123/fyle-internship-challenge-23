@@ -1,0 +1,50 @@
+
+  <div class="main">
+    <app-search (searchUser)="onSearch($event)"></app-search>
+    
+    <div *ngIf = "isLoading" class="loading">
+      <app-skeleteon-loader />
+    </div>
+
+    <div *ngIf = "!isLoading" class="page">
+      <div *ngIf="user" class="profile">
+        <div class="left">
+          <div class="image">
+              <img [src]="user.avatar_url" alt="User Avatar">
+            </div>
+            <p><span><i class="fa-solid fa-link"></i></span>https://github.com/{{ user.login }}</p>
+        </div>
+        <div class="right">
+          <h2>{{ user.login }}</h2>
+          <p>bio : {{user.bio}}</p>
+          <h3><span><i class="fa-solid fa-location-dot"></i></span> Location : {{user.location}}</h3>
+          <p>email : {{user.email}}</p>
+        </div>
+        <!-- Display other user details -->
+      </div>
+    
+      <div *ngIf="repositories">
+        <!-- <h3>Repositories:</h3> -->
+        <ul>
+  
+          <div class="cards">
+              <li *ngFor="let repo of repositories">
+                  <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+                  <p>{{ repo.description }}</p>
+                  <div class="language-container">
+                    <div class="lang">
+                      <p>{{ repo.language }}</p>
+                    </div>
+                  </div>
+              </li>
+          </div>
+        </ul>
+      </div>
+      <div class="pagination">
+      <ngb-pagination [collectionSize]="repositories.length" [(page)]="page" [pageSize]="10"></ngb-pagination>
+    </div>
+    </div>
+    
+  </div>
+
+  
